@@ -6,7 +6,7 @@
 
 O **Geminal** é uma implementação robusta de uma interface de linha de comando (CLI) projetada para facilitar a interação síncrona com os modelos de linguagem de grande escala (LLMs) da família Gemini, da Google DeepMind. O projeto aborda a necessidade de uma ferramenta de interação rápida e de baixo overhead para desenvolvedores e pesquisadores que buscam integrar capacidades cognitivas artificiais em seus fluxos de trabalho locais sem a necessidade de interfaces gráficas pesadas. 
 
-A solução proposta utiliza a biblioteca `google-generativeai` para orquestração de diálogos e o framework `rich` para renderização avançada de texto e Markdown no terminal, garantindo que a saída da IA seja não apenas legível, mas estruturalmente organizada. A metodologia foca na simplicidade de implantação e na extensibilidade, permitindo que o usuário utilize o modelo `gemini-2.5-flash` (ou superiores) para tarefas que variam de depuração de código a geração de conteúdo complexo, mantendo a persistência de contexto durante a sessão de chat.
+A solução proposta utiliza a biblioteca `google-genai` para orquestração de diálogos e o framework `rich` para renderização avançada de texto e Markdown no terminal, garantindo que a saída da IA seja não apenas legível, mas estruturalmente organizada. A metodologia foca na simplicidade de implantação e na extensibilidade, permitindo que o usuário utilize o modelo `gemini-2.5-flash` (ou superiores) para tarefas que variam de depuração de código a geração de conteúdo complexo, mantendo a persistência de contexto durante a sessão de chat.
 
 ---
 
@@ -105,7 +105,7 @@ graph TD
 | Categoria | Tecnologia | Propósito |
 | :--- | :--- | :--- |
 | **Linguagem** | Python 3.10+ | Linguagem base para scripting e integração de IA. |
-| **IA SDK** | `google-generativeai` | Interface oficial para comunicação com os modelos Gemini. |
+| **IA SDK** | `google-genai` | Interface oficial para comunicação com os modelos Gemini. |
 | **UI/TUI** | `rich` | Renderização de texto rico, Markdown e spinners de carregamento. |
 | **Networking** | `requests` / `urllib3` | Gerenciamento de requisições HTTP subjacentes. |
 | **Protocolo** | gRPC / REST | Transporte de dados entre o cliente e os servidores da Google. |
@@ -149,11 +149,11 @@ pip install -r requirements.txt
 ```
 
 ### 3. Configuração da API Key
-Abra o arquivo `Geminal.py` e localize a variável `API_KEY`. Substitua pelo seu token:
-```python
-API_KEY = "SUA_CHAVE_AQUI"
+Defina a chave como variável de ambiente antes de executar:
+```bash
+export GEMINI_API_KEY="SUA_CHAVE_AQUI"
 ```
-*Nota: Em versões futuras, recomenda-se o uso de variáveis de ambiente (.env).*
+Também é aceito `GOOGLE_API_KEY`.
 
 ### 4. Execução
 ```bash
