@@ -56,6 +56,9 @@ def main():
             console.print(Rule(style="blue"))
             console.print()
 
+        except (KeyboardInterrupt, EOFError):
+            console.print("\n[bold red]Encerrando... Até mais![/]")
+            break
         except errors.APIError as e:
             console.print(f"\n[bold red]Erro da API Gemini:[/] {e}")
         except Exception as e:
